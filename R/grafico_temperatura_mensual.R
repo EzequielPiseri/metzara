@@ -49,3 +49,16 @@ grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Tempera
   cli_inform("Gráfico generado correctamente.")
   return(g)
 }
+#Ejemplo:
+#  todas_las_estaciones <- bind_rows(
+#    leer_estacion("estacion_NH0437", "datos/estacion_NH0437.csv"),
+#    leer_estacion("estacion_NH0472", "datos/estacion_NH0472.csv")
+#  )
+
+#Generar el gráfico con colores definidos:
+#  grafico_temperatura_mensual(todas_las_estaciones,
+#                              colores = c("tomato", "steelblue"),
+#                              titulo = "Promedio mensual de temperatura")
+
+#O dejar que elija colores aleatorios:
+#  grafico_temperatura_mensual(todas_las_estaciones)
