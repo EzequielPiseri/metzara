@@ -3,6 +3,46 @@ library(ggplot2)
 library(lubridate)
 library(cli)
 
+#' Genera un gráfico de temperatura media mensual por estación
+#'
+#' Esta función recibe un conjunto de datos con observaciones diarias (o con fecha)
+#' de temperatura por estación, calcula la **temperatura media mensual** para cada
+#' estación y devuelve un objeto `ggplot` listo para visualizar.
+#'
+#' @param datos Data frame (`tibble`) con, al menos, las columnas:
+#' `id` (identificador de estación), `fecha` (clase Date) y
+#' `temperatura_abrigo_150cm` (numérica).
+#'
+#' @param colores Vector de colores opcional para asignar manualmente a cada
+#' estación. Si se omite, la función selecciona automáticamente una paleta
+#' aleatoria con tantos colores como estaciones haya.
+#'
+#' @param titulo Cadena de texto con el título del gráfico. Por defecto, `"Temperatura"`.
+#'
+#' @return Un objeto `ggplot` con la temperatura media mensual por estación.
+#'
+#' @details
+#' La función agrega por mes (según la columna `fecha`) y promedia
+#' `temperatura_abrigo_150cm` para cada combinación de `id` y `mes`.
+#' Si `colores` se provee, su longitud debe ser igual al número de estaciones
+#' distintas en `datos`. En caso contrario, se seleccionan colores aleatorios.
+#'
+#' Utiliza `dplyr`, `lubridate`, `ggplot2` y `cli`.
+#'
+#' @examples
+#' \dontrun{
+#' # Suponiendo que ya leíste varias estaciones y las combinaste en 'df'
+#' # df tiene columnas: id, fecha, temperatura_abrigo_150cm
+#' p <- grafico_temperatura_mensual(df, titulo = "Temperatura media mensual")
+#' print(p)
+#' }
+#'
+#' @export
+#' @importFrom dplyr mutate group_by summarise n_distinct
+#' @importFrom lubridate month
+#' @importFrom ggplot2 ggplot aes geom_line geom_point scale_x_continuous labs
+#' @importFrom ggplot2 scale_color_manual theme_minimal theme element_text
+#' @importFrom cli cli_abort cli_inform
 grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Temperatura") {
 
   if (!all(c("id", "fecha", "temperatura_abrigo_150cm") %in% names(datos))) {
