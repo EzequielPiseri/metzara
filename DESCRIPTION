@@ -1,9 +1,11 @@
 Package: metzara
-Title: Paquete De Funciones Metereologicas Para El Segundo Parcial
+Title: Paquete De Funciones Metereologicos Para El Segundo Parcial
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+     c(person(given = "Ezequiel", family = "Piseri", email = "ezequielpiseri@gmail.com", role = c("aut","cre")),
+      person(given = "Kiara", family = "Manacasa",email = "kmanacasa@gmail.com", role = "aut"))
+Description: Provee funciones para importar, estandarizar y resumir datos meteorológicos,
+    generar indicadores (p.ej. índice de calor) y visualizaciones rápidas.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
