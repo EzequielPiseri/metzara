@@ -3,7 +3,7 @@ library(cli)
 
 leer_estacion <- function(id_estacion, ruta) {
 
-  # Definición de URLs de las estaciones
+  # Definición de URLs de las estaciones.
   urls <- list(
     estacion_NH0472 = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0472.csv",
     estacion_NH0910 = "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0910.csv",
