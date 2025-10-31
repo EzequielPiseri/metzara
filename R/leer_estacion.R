@@ -69,7 +69,7 @@ leer_estacion <- function(id_estacion, ruta) {
   }
 
   # Lectura y Retorno de Datos
-  datos <- suppressMessages(read_csv(ruta))
+  datos <- suppressMessages(readr::read_csv(ruta))
   cli_inform("Lectura completada. El dataset de la estación {id_estacion} tiene {nrow(datos)} filas y {ncol(datos)} columnas.")
 
   return(datos)

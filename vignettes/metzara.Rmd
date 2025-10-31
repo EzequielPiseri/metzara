@@ -1,0 +1,113 @@
+---
+title: "Uso del paquete Metzara"
+author: "Kiara Manacasa y Ezequiel Piseri"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Uso del paquete Metzara}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(metzara)
+```
+
+# Introducción
+
+El paquete **Metzara** fue creado para facilitar la descarga, lectura y análisis de datos meteorológicos de distintas estaciones.\
+Permite leer archivos locales o remotos, procesarlos, generar estadísticas descriptivas y visualizar resultados de manera clara.
+
+En esta viñeta se muestra cómo usar las principales funciones del paquete paso a paso.
+
+------------------------------------------------------------------------
+
+# 1. Lectura de datos de una estación
+
+La función `leer_estacion()` permite descargar o leer los datos de una estación meteorológica específica.
+
+```{r ejemplo-lectura}
+# Ejemplo de uso
+datos <- leer_estacion(id_estacion = "estacion_NH0472", ruta = "../datos/NH0472.csv")
+head(datos)
+```
+
+**Parámetros:** - `id_estacion`: código de la estación (por ejemplo, `"NH0472"`).\
+- `ruta`: carpeta donde se guardarán o buscarán los datos.
+
+------------------------------------------------------------------------
+
+# 2. Exploración básica
+
+Una vez cargados los datos, podés inspeccionar su estructura y algunas estadísticas iniciales:
+
+```{r exploracion}
+str(datos)
+summary(datos)
+```
+
+Si tu paquete incluye una función auxiliar como `resumen_meteorologico()`, podés aplicarla directamente:
+
+```{r resumen}
+# resumen_meteorologico(datos)
+```
+
+------------------------------------------------------------------------
+
+# 3. Visualización de variables
+
+Las funciones gráficas del paquete ayudan a observar la evolución temporal de las variables.\
+Por ejemplo, una función `graficar_temperatura()` podría generar un gráfico de líneas.
+
+```{r grafico-temperatura, eval=FALSE}
+graficar_temperatura(datos, variable = "temp_media")
+```
+
+El objetivo es poder visualizar patrones y detectar posibles valores atípicos o faltantes.
+
+------------------------------------------------------------------------
+
+# 4. Ejemplo con datos incluidos
+
+El paquete incluye un dataset de ejemplo, `metzara_datos`, para mostrar su funcionamiento sin necesidad de descargar archivos externos.
+
+```{r datos-ejemplo}
+data("datos")
+head(datos)
+```
+
+Estos datos representan un subconjunto de mediciones reales obtenidas de estaciones meteorológicas en Argentina.
+
+------------------------------------------------------------------------
+
+# 5. Flujo de trabajo completo
+
+1.  Descargar los datos con `leer_estacion()`.\
+2.  Procesarlos con las funciones de limpieza (por ejemplo, `limpiar_datos()`).\
+3.  Analizar las variables con `resumen_meteorologico()`.\
+4.  Visualizar resultados con funciones gráficas como `graficar_temperatura()` o `graficar_precipitacion()`.
+
+```{r flujo-completo, eval=FALSE}
+datos <- leer_estacion("estacion_NH0472", "../datos/NH0472.csv")
+datos_limpios <- limpiar_datos(datos)
+resumen <- resumen_meteorologico(datos_limpios)
+graficar_precipitacion(datos_limpios)
+```
+
+------------------------------------------------------------------------
+
+# 6. Conclusión
+
+El paquete **Metzara** proporciona una interfaz sencilla para el análisis meteorológico en R, integrando lectura, exploración y visualización de datos de estaciones.\
+Podés ampliar sus capacidades agregando funciones de modelado, interpolación espacial o análisis temporal según tus necesidades.
+
+------------------------------------------------------------------------
+
+# Referencias
+
+-   [R Documentation: Writing package vignettes](https://r-pkgs.org/vignettes.html)\
+-   [CRAN R Markdown Vignettes Guide](https://rmarkdown.rstudio.com/authoring_vignettes.html)
