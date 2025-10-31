@@ -1,5 +1,3 @@
-library(readr)
-library(cli)
 
 #' Lee y descarga datos meteorológicos de una estación
 #'

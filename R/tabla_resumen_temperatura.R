@@ -1,6 +1,3 @@
-library(dplyr)
-library(tidyr)
-library(cli)
 
 #' Genera un resumen estadístico de temperatura para una o más estaciones
 #'
