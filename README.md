@@ -1,29 +1,59 @@
-
 <!-- README.md se genera a partir de README.Rmd. Por favor, editá este archivo. -->
 
-# metzara
+<p align="center">
+  <img src="man/figures/metzara_banner.png" width="100%" alt="Banner meteorológico">
+</p>
+
+<h1 align="center">🌦️ metzara</h1>
+<h4 align="center">Análisis y procesamiento de datos meteorológicos en R</h4>
+
+---
 
 <!-- badges: start -->
-
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<p align="center">
+  <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental">
+    <img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle-badge"/>
+  </a>
+  <a href="https://github.com/EzequielPiseri/metzara/actions">
+    <img src="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R CMD Check"/>
+  </a>
+  <a href="https://codecov.io/gh/EzequielPiseri/metzara">
+    <img src="https://codecov.io/gh/EzequielPiseri/metzara/branch/main/graph/badge.svg" alt="Coverage"/>
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"/>
+  </a>
+</p>
 <!-- badges: end -->
 
-El objetivo de metzara es proporcionar un conjunto de funciones para
-leer, procesar y analizar datos meteorológicos de estaciones, de manera
-práctica y reproducible. El paquete está diseñado como una herramienta
-didáctica y de análisis para proyectos de ciencia de datos y
-programación en R.
+---
 
-\#Instalación
+## ☀️ Descripción general
 
-Podés instalar la versión de desarrollo de metzara desde
-[GitHub](https://github.com/) with:
+**metzara** es un paquete desarrollado en R para facilitar el **análisis, limpieza y visualización de datos meteorológicos** de distintas estaciones.  
+Su propósito es ofrecer una herramienta **didáctica, reproducible y práctica** para proyectos de ciencia de datos, programación y estudios climáticos.
 
-``` r
+🌬️ Este paquete permite:
+- Descargar y leer datos meteorológicos desde archivos o URLs.  
+- Calcular estadísticas descriptivas de temperatura, humedad y precipitación.  
+- Generar gráficos y reportes reproducibles.  
+- Trabajar con datasets de ejemplo para aprender y experimentar.
+
+---
+
+## 🌧️ Instalación
+
+Instalá la versión de desarrollo directamente desde GitHub:
+
+```r
 # install.packages("pak")
 pak::pak("EzequielPiseri/metzara")
-```
+## 🌡️ Funciones principales
+Función	Descripción
+leer_estacion()	Descarga o lee datos crudos de una estación específica.
+tabla_resumen_temperatura()	Calcula media, mínimo, máximo y desvío estándar de temperatura.
+grafico_temperatura_mensual()	Promedia la temperatura mensual y genera un gráfico de tendencia.
+descargar_datos()	Automatiza la descarga de datasets meteorológicos.
 
 ## Ejemplo de uso
 
