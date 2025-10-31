@@ -1,32 +1,26 @@
-<!-- README.md se genera a partir de README.Rmd. Por favor, editá este archivo. -->
+<!-- README.md se genera a partir de README.Rmd. Si editás este archivo directamente, mantené la misma estructura. -->
 
-<!-- 🔵 Encabezado con color de fondo -->
-<div align="center" style="
-  background: linear-gradient(135deg, #0077cc, #00aaff);
-  padding: 30px 10px;
-  border-radius: 10px;
-  color: white;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-">
-  <h1 style="margin-bottom: 10px; font-size: 2.8em;">🌦️ metzara</h1>
-  <h3 style="margin-top: 0; font-weight: 400;">Análisis y procesamiento de datos meteorológicos en R</h3>
-</div>
+<p align="center">
+  <img src="https://img.shields.io/badge/%F0%9F%8C%A6%20metzara-Anal%C3%ADtica%20meteorol%C3%B3gica%20en%20R-1E88E5?style=for-the-badge" alt="metzara banner">
+</p>
 
 <p align="center">
   <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental">
-    <img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"/>
+    <img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle">
   </a>
-  <a href="https://github.com/EzequielPiseri/metzara/actions">
-    <img src="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R CMD Check"/>
+  <a href="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml">
+    <img src="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R CMD Check">
   </a>
   <a href="https://codecov.io/gh/EzequielPiseri/metzara">
-    <img src="https://codecov.io/gh/EzequielPiseri/metzara/branch/main/graph/badge.svg" alt="Coverage"/>
+    <img src="https://codecov.io/gh/EzequielPiseri/metzara/branch/main/graph/badge.svg" alt="Coverage">
   </a>
   <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"/>
+    <img src="https://img.shields.io/badge/License-MIT-1565C0.svg" alt="MIT License">
   </a>
 </p>
+
+<h1 align="center">metzara</h1>
+<p align="center"><em>Análisis y procesamiento de datos meteorológicos en R</em></p>
 
 ---
 
