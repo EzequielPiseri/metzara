@@ -1,7 +1,7 @@
-<!-- README.md se genera a partir de README.Rmd. Si editás este archivo directamente, mantené la misma estructura. -->
+<!-- README.md generado desde README.Rmd -->
 
 <p align="center">
-  <img src="https://img.shields.io/badge/%F0%9F%8C%A6%20metzara-Anal%C3%ADtica%20meteorol%C3%B3gica%20en%20R-1E88E5?style=for-the-badge" alt="metzara banner">
+  <img src="https://img.shields.io/badge/%F0%9F%8C%A6%20METZARA-Anal%C3%ADtica%20Meteorol%C3%B3gica%20en%20R-1E88E5?style=for-the-badge&logo=rainmeter&logoColor=white" alt="metzara badge">
 </p>
 
 <p align="center">
@@ -19,7 +19,7 @@
   </a>
 </p>
 
-<h1 align="center">metzara</h1>
+<h1 align="center">🌦️ metzara</h1>
 <p align="center"><em>Análisis y procesamiento de datos meteorológicos en R</em></p>
 
 ---
