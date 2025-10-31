@@ -16,6 +16,13 @@ BugReports: https://github.com/EzequielPiseri/metzara/issues
 Suggests: 
     knitr,
     rmarkdown
+Imports:
+    dplyr,
+    ggplot2,
+    readr,
+    tidyr,
+    cli,
+    lubridate
 VignetteBuilder: knitr
 Depends: 
     R (>= 3.5)

@@ -1,113 +1,103 @@
 ---
-title: "Uso del paquete Metzara"
-author: "Kiara Manacasa y Ezequiel Piseri"
-date: "`r Sys.Date()`"
+title: "Uso del paquete meteorodata"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Uso del paquete Metzara}
+  %\VignetteIndexEntry{Uso del paquete meteorodata}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include=FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+```
+
+## Introducción
+
+El paquete **`metzara`** permite descargar, leer, analizar y visualizar datos de estaciones meteorológicas de Argentina.\
+En esta viñeta se muestra cómo utilizar sus funciones principales:
+
+-   `leer_estacion()`: descarga y lee los datos de una estación específica.\
+-   `tabla_resumen_temperatura()`: genera un resumen estadístico de la temperatura por estación.\
+-   `grafico_temperatura_mensual()`: crea un gráfico del promedio mensual de temperatura para una o varias estaciones.
+
+------------------------------------------------------------------------
+
+## 1. Cargar el paquete
+
+```{r setup}
 library(metzara)
-```
-
-# Introducción
-
-El paquete **Metzara** fue creado para facilitar la descarga, lectura y análisis de datos meteorológicos de distintas estaciones.\
-Permite leer archivos locales o remotos, procesarlos, generar estadísticas descriptivas y visualizar resultados de manera clara.
-
-En esta viñeta se muestra cómo usar las principales funciones del paquete paso a paso.
-
-------------------------------------------------------------------------
-
-# 1. Lectura de datos de una estación
-
-La función `leer_estacion()` permite descargar o leer los datos de una estación meteorológica específica.
-
-```{r ejemplo-lectura}
-# Ejemplo de uso
-datos <- leer_estacion(id_estacion = "estacion_NH0472", ruta = "../datos/NH0472.csv")
-head(datos)
-```
-
-**Parámetros:** - `id_estacion`: código de la estación (por ejemplo, `"NH0472"`).\
-- `ruta`: carpeta donde se guardarán o buscarán los datos.
-
-------------------------------------------------------------------------
-
-# 2. Exploración básica
-
-Una vez cargados los datos, podés inspeccionar su estructura y algunas estadísticas iniciales:
-
-```{r exploracion}
-str(datos)
-summary(datos)
-```
-
-Si tu paquete incluye una función auxiliar como `resumen_meteorologico()`, podés aplicarla directamente:
-
-```{r resumen}
-# resumen_meteorologico(datos)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
 ```
 
 ------------------------------------------------------------------------
 
-# 3. Visualización de variables
+## 2. Lectura de datos de una estación
 
-Las funciones gráficas del paquete ayudan a observar la evolución temporal de las variables.\
-Por ejemplo, una función `graficar_temperatura()` podría generar un gráfico de líneas.
+La función `leer_estacion()` descarga los datos de una estación determinada y los guarda localmente en la carpeta `datos/`.\
+Luego los lee como un `data.frame` o `tibble`.
 
-```{r grafico-temperatura, eval=FALSE}
-graficar_temperatura(datos, variable = "temp_media")
-```
+```{r}
+# Ejemplo: leer la estación NH0472
+datos_NH0472 <- leer_estacion("estacion_NH0472", "datos/estacion_NH0472.csv")
 
-El objetivo es poder visualizar patrones y detectar posibles valores atípicos o faltantes.
-
-------------------------------------------------------------------------
-
-# 4. Ejemplo con datos incluidos
-
-El paquete incluye un dataset de ejemplo, `metzara_datos`, para mostrar su funcionamiento sin necesidad de descargar archivos externos.
-
-```{r datos-ejemplo}
-data("datos")
-head(datos)
-```
-
-Estos datos representan un subconjunto de mediciones reales obtenidas de estaciones meteorológicas en Argentina.
-
-------------------------------------------------------------------------
-
-# 5. Flujo de trabajo completo
-
-1.  Descargar los datos con `leer_estacion()`.\
-2.  Procesarlos con las funciones de limpieza (por ejemplo, `limpiar_datos()`).\
-3.  Analizar las variables con `resumen_meteorologico()`.\
-4.  Visualizar resultados con funciones gráficas como `graficar_temperatura()` o `graficar_precipitacion()`.
-
-```{r flujo-completo, eval=FALSE}
-datos <- leer_estacion("estacion_NH0472", "../datos/NH0472.csv")
-datos_limpios <- limpiar_datos(datos)
-resumen <- resumen_meteorologico(datos_limpios)
-graficar_precipitacion(datos_limpios)
+# Visualizamos las primeras filas
+head(datos_NH0472, 5)
 ```
 
 ------------------------------------------------------------------------
 
-# 6. Conclusión
+## 3. Generar una tabla resumen de temperatura
 
-El paquete **Metzara** proporciona una interfaz sencilla para el análisis meteorológico en R, integrando lectura, exploración y visualización de datos de estaciones.\
-Podés ampliar sus capacidades agregando funciones de modelado, interpolación espacial o análisis temporal según tus necesidades.
+La función `tabla_resumen_temperatura()` permite obtener estadísticas básicas (media, desviación estándar, máxima y mínima) de la temperatura de abrigo a 150 cm para una o más estaciones.
+
+```{r}
+resumen <- tabla_resumen_temperatura(c("estacion_NH0437", "estacion_NH0472", "estacion_NH0098"))
+resumen
+```
+
+El resultado está en formato largo (long format), lo que facilita la visualización posterior con `ggplot2`.
 
 ------------------------------------------------------------------------
 
-# Referencias
+## 4. Generar un gráfico del promedio mensual de temperatura
 
--   [R Documentation: Writing package vignettes](https://r-pkgs.org/vignettes.html)\
--   [CRAN R Markdown Vignettes Guide](https://rmarkdown.rstudio.com/authoring_vignettes.html)
+Podemos unir varios datasets y luego graficar la temperatura promedio mensual usando `grafico_temperatura_mensual()`.
+
+```{r}
+# Leemos varias estaciones
+todas_las_estaciones <- bind_rows(
+  leer_estacion("estacion_NH0437", "datos/estacion_NH0437.csv"),
+  leer_estacion("estacion_NH0472", "datos/estacion_NH0472.csv")
+)
+
+# Gráfico con colores definidos manualmente
+grafico_temperatura_mensual(
+  todas_las_estaciones,
+  colores = c("tomato", "steelblue"),
+  titulo = "Promedio mensual de temperatura"
+)
+```
+
+O, si preferís que los colores se generen automáticamente:
+
+```{r}
+grafico_temperatura_mensual(todas_las_estaciones)
+```
+
+------------------------------------------------------------------------
+
+## 5. Conclusión
+
+El paquete `meteorodata` facilita la obtención y análisis de información climática histórica.\
+Sus funciones permiten automatizar el proceso de descarga, limpieza y visualización de datos meteorológicos, generando resultados reproducibles y visualmente claros.
+
+------------------------------------------------------------------------
+
+**Autores:**\
+*Ezequiel Piseri y Kiara Manacasa*\
+**Fecha:** `r Sys.Date()`
