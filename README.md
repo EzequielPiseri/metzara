@@ -1,11 +1,32 @@
 <!-- README.md se genera a partir de README.Rmd. Por favor, editá este archivo. -->
 
-<p align="center">
-  <img src="man/figures/metzara_banner.png" width="100%" alt="Banner meteorológico">
-</p>
+<!-- 🔵 Encabezado con color de fondo -->
+<div align="center" style="
+  background: linear-gradient(135deg, #0077cc, #00aaff);
+  padding: 30px 10px;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+">
+  <h1 style="margin-bottom: 10px; font-size: 2.8em;">🌦️ metzara</h1>
+  <h3 style="margin-top: 0; font-weight: 400;">Análisis y procesamiento de datos meteorológicos en R</h3>
+</div>
 
-<h1 align="center">🌦️ metzara</h1>
-<h4 align="center">Análisis y procesamiento de datos meteorológicos en R</h4>
+<p align="center">
+  <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental">
+    <img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"/>
+  </a>
+  <a href="https://github.com/EzequielPiseri/metzara/actions">
+    <img src="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R CMD Check"/>
+  </a>
+  <a href="https://codecov.io/gh/EzequielPiseri/metzara">
+    <img src="https://codecov.io/gh/EzequielPiseri/metzara/branch/main/graph/badge.svg" alt="Coverage"/>
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"/>
+  </a>
+</p>
 
 ---
 
