@@ -4,21 +4,6 @@
   <img src="https://img.shields.io/badge/%F0%9F%8C%A6%20METZARA-Anal%C3%ADtica%20Meteorol%C3%B3gica%20en%20R-1E88E5?style=for-the-badge&logo=rainmeter&logoColor=white" alt="metzara badge">
 </p>
 
-<p align="center">
-  <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental">
-    <img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle">
-  </a>
-  <a href="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml">
-    <img src="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R CMD Check">
-  </a>
-  <a href="https://codecov.io/gh/EzequielPiseri/metzara">
-    <img src="https://codecov.io/gh/EzequielPiseri/metzara/branch/main/graph/badge.svg" alt="Coverage">
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-1565C0.svg" alt="MIT License">
-  </a>
-</p>
-
 <h1 align="center">🌦️ metzara</h1>
 <p align="center"><em>Análisis y procesamiento de datos meteorológicos en R</em></p>
 
