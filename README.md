@@ -1,7 +1,7 @@
 
 <!-- README.md se genera a partir de README.Rmd. Por favor, editá este archivo. -->
 
-# metzara <img src="man/figures/logo.jpg" align="right" width="120"/>
+# metzara <img src="man/figures/logo.png" align="right" width="120"/>
 
 <!-- badges: start -->
 
