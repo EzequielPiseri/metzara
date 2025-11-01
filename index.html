@@ -46,59 +46,34 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><p align="center">
-<img src="https://img.shields.io/badge/%F0%9F%8C%A6%20METZARA-Anal%C3%ADtica%20Meteorol%C3%B3gica%20en%20R-1E88E5?style=for-the-badge&amp;logo=rainmeter&amp;logoColor=white" alt="metzara badge"></p>
-<div class="page-header"><h1 align="center">
-🌦️ metzara
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="metzara">metzara<a class="anchor" aria-label="anchor" href="#metzara"></a>
 </h1></div>
-<p align="center">
-<em>Análisis y procesamiento de datos meteorológicos en R</em>
-</p>
-<hr>
 <!-- badges: start -->
+
 <!-- badges: end -->
-<hr>
+<p>El objetivo de metzara es proporcionar un conjunto de funciones para leer, procesar y analizar datos meteorológicos de estaciones, de manera práctica y reproducible. El paquete está diseñado como una herramienta didáctica y de análisis para proyectos de ciencia de datos y programación en R.</p>
+<p>#Instalación</p>
+<p>Podés instalar la versión de desarrollo de metzara desde <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"EzequielPiseri/metzara"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
-<h2 id="id_️-descripción-general">☀️ Descripción general<a class="anchor" aria-label="anchor" href="#id_%EF%B8%8F-descripci%C3%B3n-general"></a>
+<h2 id="ejemplo-de-uso">Ejemplo de uso<a class="anchor" aria-label="anchor" href="#ejemplo-de-uso"></a>
 </h2>
-<p><strong>metzara</strong> es un paquete desarrollado en R para facilitar el <strong>análisis, limpieza y visualización de datos meteorológicos</strong> de distintas estaciones.<br>
-Su propósito es ofrecer una herramienta <strong>didáctica, reproducible y práctica</strong> para proyectos de ciencia de datos, programación y estudios climáticos.</p>
-<p>🌬️ Este paquete permite: - Descargar y leer datos meteorológicos desde archivos o URLs.<br>
-- Calcular estadísticas descriptivas de temperatura, humedad y precipitación.<br>
-- Generar gráficos y reportes reproducibles.<br>
-- Trabajar con datasets de ejemplo para aprender y experimentar.</p>
-<hr>
-</div>
-<div class="section level2">
-<h2 id="id_️-instalación">🌧️ Instalación<a class="anchor" aria-label="anchor" href="#id_%EF%B8%8F-instalaci%C3%B3n"></a>
-</h2>
-<p>Instalá la versión de desarrollo directamente desde GitHub:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># install.packages("pak")</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">"EzequielPiseri/metzara"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="do">## 🌡️ Funciones principales</span></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>Función Descripción</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">leer_estacion</span>() Descarga o lee datos crudos de una estación específica.</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">tabla_resumen_temperatura</span>() Calcula media, mínimo, máximo y desvío estándar de temperatura.</span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fu">grafico_temperatura_mensual</span>()   Promedia la temperatura mensual y genera un gráfico de tendencia.</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="fu">descargar_datos</span>()   Automatiza la descarga de datasets meteorológicos.</span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="do">## Ejemplo de uso</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>A continuación se muestra un ejemplo básico que ilustra cómo utilizar</span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>las funciones del paquete<span class="sc">:</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="st">```</span><span class="at"> r</span></span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="at">library(metzara)</span></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="at">## basic example code</span></span></code></pre></div>
-<p>##Ejemplo práctico Podés usar las funciones incluidas para generar resúmenes o visualizar los datos. Por ejemplo, si el paquete incluye una función tabla_resumen_temperatura():</p>
+<p>A continuación se muestra un ejemplo básico que ilustra cómo utilizar las funciones del paquete:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/EzequielPiseri/metzara" class="external-link">metzara</a></span><span class="op">)</span></span>
+<span><span class="co">## basic example code</span></span></code></pre></div>
+<p>##Ejemplo práctico Podés usar las funciones incluidas para generar resúmenes o visualizar los datos. Por ejemplo, si el paquete incluye una función tabla_resumen_temperatura():</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">##tabla_resumen_temperatura(meteo_estaciones)</span></span></code></pre></div>
 <p>Todavía vas a necesitar renderizar (knit) el archivo README.Rmd regularmente para mantener el README.md actualizado. La función devtools::build_readme() es muy útil para esto.</p>
 <p>También podés incrustar gráficos, por ejemplo:</p>
 <p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
 <p>En ese caso, no te olvides de hacer commit y push de los archivos de las figuras generadas, para que se muestren correctamente en GitHub y en CRAN.</p>
 </div>
-
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
@@ -134,10 +109,8 @@ Su propósito es ofrecer una herramienta <strong>didáctica, reproducible y prá
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"> <img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle-badge"></a></li>
-<li><a href="https://github.com/EzequielPiseri/metzara/actions" class="external-link"> <img src="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R CMD Check"></a></li>
-<li><a href="https://codecov.io/gh/EzequielPiseri/metzara" class="external-link"> <img src="https://codecov.io/gh/EzequielPiseri/metzara/branch/main/graph/badge.svg" alt="Coverage"></a></li>
-<li><a href="LICENSE"> <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
