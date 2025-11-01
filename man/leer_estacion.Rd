@@ -2,35 +2,35 @@
 % Please edit documentation in R/leer_estacion.R
 \name{leer_estacion}
 \alias{leer_estacion}
-\title{Lee y descarga datos meteorológicos de una estación}
+\title{Lee y descarga datos meteorologicos de una estacion}
 \usage{
 leer_estacion(id_estacion, ruta)
 }
 \arguments{
-\item{id_estacion}{Cadena de texto con el identificador de la estación.
-Los valores válidos son: \code{"estacion_NH0472"}, \code{"estacion_NH0910"},
-\code{"estacion_NH0046"}, \code{"estacion_NH0098"} y \code{"estacion_NH0437"}.}
+\item{id_estacion}{Cadena de texto con el identificador de la estacion.
+Los valores validos son: "estacion_NH0472", "estacion_NH0910",
+"estacion_NH0046", "estacion_NH0098" y "estacion_NH0437".}
 
-\item{ruta}{Cadena de texto con la ruta local donde se guardará o leerá el archivo CSV.
-Por ejemplo, \code{"datos/NH0472.csv"}.}
+\item{ruta}{Cadena de texto con la ruta local donde se guardara o leera el archivo CSV.
+Por ejemplo, "datos/NH0472.csv".}
 }
 \value{
-Un data frame (\code{tibble}) con los datos meteorológicos de la estación especificada.
+Un data frame (tibble) con los datos meteorologicos de la estacion especificada.
 }
 \description{
-Esta función descarga (si no existe previamente) y lee un archivo CSV con datos
-meteorológicos correspondientes a una estación específica, usando un identificador
+Esta funcion descarga (si no existe previamente) y lee un archivo CSV con datos
+meteorologicos correspondientes a una estacion especifica, usando un identificador
 predefinido. Si el archivo no existe en la ruta indicada, se crea el directorio
-y se descarga automáticamente desde una fuente remota.
+y se descarga automaticamente desde una fuente remota.
 }
 \details{
-La función valida el identificador de estación, crea la carpeta de destino si no existe,
+La funcion valida el identificador de estacion, crea la carpeta de destino si no existe,
 descarga el archivo en caso necesario y luego lee el contenido en formato CSV.
 Utiliza los paquetes \code{readr} para la lectura de datos y \code{cli} para mostrar mensajes informativos.
 }
 \examples{
 \dontrun{
-# Descargar y leer los datos de la estación NH0472
+# Descargar y leer los datos de la estacion NH0472
 datos_ejemplo <- leer_estacion("estacion_NH0472", "datos/NH0472.csv")
 
 # Mostrar las primeras filas

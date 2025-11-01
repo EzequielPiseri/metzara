@@ -12,6 +12,7 @@ test_that("leer_estacion funciona correctamente", {
 
   expect_error(
     leer_estacion("estacion_INEXISTENTE", ruta_temp),
-    regexp = "(?i)no es válido"
+    regexp = "no es valido",
+    class = "rlang_error"
   )
 })

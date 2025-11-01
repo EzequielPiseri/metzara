@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabla_resumen_temperatura.R
 \name{tabla_resumen_temperatura}
 \alias{tabla_resumen_temperatura}
-\title{Genera un resumen estadístico de temperatura para una o más estaciones}
+\title{Genera un resumen estadistico de temperatura para una o mas estaciones}
 \usage{
 tabla_resumen_temperatura(ids_estaciones)
 }
@@ -12,25 +12,25 @@ temperaturas se desean resumir. Por ejemplo:
 \code{c("estacion_NH0098", "estacion_NH0437", "estacion_NH0472")}.}
 }
 \value{
-Un data frame (\code{tibble}) con el resumen de temperatura por estación,
+Un data frame (tibble) con el resumen de temperatura por estacion,
 con las siguientes columnas:
 \itemize{
-\item \code{id}: Identificador de la estación.
-\item \code{Tipo}: Tipo de valor (\code{"Maxima"} o \code{"Minima"}).
+\item \code{id}: Identificador de la estacion.
+\item \code{Tipo}: Tipo de valor ("Maxima" o "Minima").
 \item \code{Temperatura}: Valor correspondiente de temperatura.
 }
 }
 \description{
-Esta función lee los datos meteorológicos de una o más estaciones, combinando la información
-descargada mediante \code{leer_estacion()}. Calcula estadísticas básicas de temperatura para cada
-estación (media, desviación estándar, valores máximos y mínimos) y devuelve los resultados
+Esta funcion lee los datos meteorologicos de una o mas estaciones, combinando la informacion
+descargada mediante \code{leer_estacion()}. Calcula estadisticas basicas de temperatura para cada
+estacion (media, desviacion estandar, valores maximos y minimos) y devuelve los resultados
 en formato largo.
 }
 \details{
-La función recorre las estaciones indicadas, leyendo los archivos CSV locales (o descargándolos
-si no existen) mediante \code{leer_estacion()}. Luego, combina todos los datos en un único conjunto
-y calcula, para cada estación, las temperaturas media, desviación estándar, máxima y mínima.
-Finalmente, reestructura la tabla a formato largo para facilitar la visualización o el análisis.
+La funcion recorre las estaciones indicadas, leyendo los archivos CSV locales (o descargandolos
+si no existen) mediante \code{leer_estacion()}. Luego, combina todos los datos en un unico conjunto
+y calcula, para cada estacion, las temperaturas media, desviacion estandar, maxima y minima.
+Finalmente, reestructura la tabla a formato largo para facilitar la visualizacion o el analisis.
 
 Utiliza los paquetes \code{dplyr}, \code{tidyr} y \code{cli} para el manejo y procesamiento de los datos.
 }

@@ -6,8 +6,7 @@ Authors@R:
       person(given = "Kiara", family = "Manacasa",email = "kmanacasa@gmail.com", role = "aut"))
 Description: Provee funciones para importar, estandarizar y resumir datos meteorológicos,
     generar indicadores (p.ej. índice de calor) y visualizaciones rápidas.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
@@ -29,4 +28,7 @@ VignetteBuilder: knitr
 Depends: 
     R (>= 3.5)
 LazyData: true
+LazyDataCompression: xz
 Config/testthat/edition: 3
+
+

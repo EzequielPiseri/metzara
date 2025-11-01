@@ -2,40 +2,40 @@
 % Please edit documentation in R/grafico_temperatura_mensual.R
 \name{grafico_temperatura_mensual}
 \alias{grafico_temperatura_mensual}
-\title{Genera un gráfico de temperatura media mensual por estación}
+\title{Genera un grafico de temperatura media mensual por estacion}
 \usage{
 grafico_temperatura_mensual(datos, colores = NULL, titulo = "Temperatura")
 }
 \arguments{
-\item{datos}{Data frame (\code{tibble}) con, al menos, las columnas:
-\code{id} (identificador de estación), \code{fecha} (clase Date) y
-\code{temperatura_abrigo_150cm} (numérica).}
+\item{datos}{Data frame (tibble) con, al menos, las columnas:
+\code{id} (identificador de estacion), \code{fecha} (clase Date) y
+\code{temperatura_abrigo_150cm} (numerica).}
 
 \item{colores}{Vector de colores opcional para asignar manualmente a cada
-estación. Si se omite, la función selecciona automáticamente una paleta
+estacion. Si se omite, la funcion selecciona automaticamente una paleta
 aleatoria con tantos colores como estaciones haya.}
 
-\item{titulo}{Cadena de texto con el título del gráfico. Por defecto, \code{"Temperatura"}.}
+\item{titulo}{Cadena de texto con el titulo del grafico. Por defecto, "Temperatura".}
 }
 \value{
-Un objeto \code{ggplot} con la temperatura media mensual por estación.
+Un objeto \code{ggplot} con la temperatura media mensual por estacion.
 }
 \description{
-Esta función recibe un conjunto de datos con observaciones diarias (o con fecha)
-de temperatura por estación, calcula la \strong{temperatura media mensual} para cada
-estación y devuelve un objeto \code{ggplot} listo para visualizar.
+Esta funcion recibe un conjunto de datos con observaciones diarias (o con fecha)
+de temperatura por estacion, calcula la temperatura media mensual para cada
+estacion y devuelve un objeto \code{ggplot} listo para visualizar.
 }
 \details{
-La función agrega por mes (según la columna \code{fecha}) y promedia
-\code{temperatura_abrigo_150cm} para cada combinación de \code{id} y \code{mes}.
-Si \code{colores} se provee, su longitud debe ser igual al número de estaciones
+La funcion agrega por mes (segun la columna \code{fecha}) y promedia
+\code{temperatura_abrigo_150cm} para cada combinacion de \code{id} y \code{mes}.
+Si \code{colores} se provee, su longitud debe ser igual al numero de estaciones
 distintas en \code{datos}. En caso contrario, se seleccionan colores aleatorios.
 
 Utiliza \code{dplyr}, \code{lubridate}, \code{ggplot2} y \code{cli}.
 }
 \examples{
 \dontrun{
-# Suponiendo que ya leíste varias estaciones y las combinaste en 'df'
+# Suponiendo que ya leiste varias estaciones y las combinaste en 'df'
 # df tiene columnas: id, fecha, temperatura_abrigo_150cm
 p <- grafico_temperatura_mensual(df, titulo = "Temperatura media mensual")
 print(p)
