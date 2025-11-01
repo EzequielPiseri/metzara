@@ -9,3 +9,4 @@ data_raw/
 ^pkgdown$
 ^\.github$
 ^LICENSE\.md$
+^CODE_OF_CONDUCT\.md$
