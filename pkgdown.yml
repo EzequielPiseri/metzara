@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   metzara: metzara.html
-last_built: 2025-11-01T00:15Z
+last_built: 2025-11-01T02:55Z
 urls:
   reference: https://ezequielpiseri.github.io/metzara/reference
   article: https://ezequielpiseri.github.io/metzara/articles
