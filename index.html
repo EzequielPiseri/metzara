@@ -55,28 +55,122 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>El objetivo de metzara es proporcionar un conjunto de funciones para leer, procesar y analizar datos meteorológicos de estaciones, de manera práctica y reproducible. El paquete está diseñado como una herramienta didáctica y de análisis para proyectos de ciencia de datos y programación en R.</p>
-<p>#Instalación</p>
-<p>Podés instalar la versión de desarrollo de metzara desde <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+</div>
+<div class="section level1">
+<h1 id="objetivo">Objetivo<a class="anchor" aria-label="anchor" href="#objetivo"></a>
+</h1>
+<p>El paquete <strong>metzara</strong> tiene como objetivo facilitar el análisis, la lectura y la visualización de datos meteorológicos provenientes de estaciones.<br>
+A través de sus funciones principales, permite automatizar la descarga, estandarización, resumen y graficación de datos de temperatura, de manera práctica y reproducible.</p>
+<p>Este paquete fue desarrollado como herramienta didáctica y de análisis dentro de proyectos de ciencia de datos y programación en R.</p>
+<hr>
+<div class="section level2">
+<h2 id="instalación">Instalación<a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n"></a>
+</h2>
+<p>Podés instalar la versión de desarrollo del paquete desde <a href="https://github.com/" class="external-link">GitHub</a> con:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"EzequielPiseri/metzara"</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
 <div class="section level2">
-<h2 id="ejemplo-de-uso">Ejemplo de uso<a class="anchor" aria-label="anchor" href="#ejemplo-de-uso"></a>
+<h2 id="descarga-de-datos">Descarga de datos<a class="anchor" aria-label="anchor" href="#descarga-de-datos"></a>
 </h2>
-<p>A continuación se muestra un ejemplo básico que ilustra cómo utilizar las funciones del paquete:</p>
+<p>Para obtener los datos de estaciones meteorológicas, se implementó la siguiente función:</p>
+<div class="section level3">
+<h3 id="leer_estacion">
+<strong><code>leer_estacion()</code></strong><a class="anchor" aria-label="anchor" href="#leer_estacion"></a>
+</h3>
+<p>Esta función descarga (si no existe previamente) y lee un archivo CSV con los datos meteorológicos correspondientes a una estación específica, usando un identificador predefinido.<br>
+Si el archivo no existe en la ruta indicada, crea el directorio y descarga automáticamente el dataset desde una fuente remota.</p>
+<p><strong>Ejemplo de uso:</strong></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/EzequielPiseri/metzara" class="external-link">metzara</a></span><span class="op">)</span></span>
-<span><span class="co">## basic example code</span></span></code></pre></div>
-<p>##Ejemplo práctico Podés usar las funciones incluidas para generar resúmenes o visualizar los datos. Por ejemplo, si el paquete incluye una función tabla_resumen_temperatura():</p>
+<code class="sourceCode R"><span><span class="va">datos_ejemplo</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/leer_estacion.html">leer_estacion</a></span><span class="op">(</span><span class="st">"estacion_NH0472"</span>, <span class="st">"datos/NH0472.csv"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">datos_ejemplo</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+</div>
+<div class="section level2">
+<h2 id="funciones-principales">Funciones principales<a class="anchor" aria-label="anchor" href="#funciones-principales"></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong><code><a href="reference/tabla_resumen_temperatura.html">tabla_resumen_temperatura()</a></code></strong><br>
+Calcula medidas significativas por estación (media, desviación estándar, máximo y mínimo) a partir de los datos descargados.<br>
+Devuelve una tabla en formato largo, útil para comparar las temperaturas entre distintas estaciones.</p>
+<p><strong>Ejemplo:</strong></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">##tabla_resumen_temperatura(meteo_estaciones)</span></span></code></pre></div>
-<p>Todavía vas a necesitar renderizar (knit) el archivo README.Rmd regularmente para mantener el README.md actualizado. La función devtools::build_readme() es muy útil para esto.</p>
-<p>También podés incrustar gráficos, por ejemplo:</p>
-<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
-<p>En ese caso, no te olvides de hacer commit y push de los archivos de las figuras generadas, para que se muestren correctamente en GitHub y en CRAN.</p>
+<code class="sourceCode R"><span><span class="va">resumen</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tabla_resumen_temperatura.html">tabla_resumen_temperatura</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"estacion_NH0472"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">resumen</span><span class="op">)</span></span></code></pre></div>
+</li>
+<li>
+<p><strong><code><a href="reference/grafico_temperatura_mensual.html">grafico_temperatura_mensual()</a></code></strong><br>
+Genera un gráfico de tendencia mensual de temperatura media por estación.<br>
+Agrupa los datos por mes y calcula el promedio de temperatura, mostrando visualmente las variaciones a lo largo del año.</p>
+<p><strong>Ejemplo:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">grafico</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/grafico_temperatura_mensual.html">grafico_temperatura_mensual</a></span><span class="op">(</span><span class="va">datos_ejemplo</span>, titulo <span class="op">=</span> <span class="st">"Temperatura mensual promedio"</span><span class="op">)</span></span>
+<span><span class="va">grafico</span></span></code></pre></div>
+</li>
+</ol>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="ejemplo-completo">Ejemplo completo<a class="anchor" aria-label="anchor" href="#ejemplo-completo"></a>
+</h2>
+<p>Este es un flujo de trabajo básico con <strong>metzara</strong>:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/EzequielPiseri/metzara" class="external-link">metzara</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Descargar datos de una estación</span></span>
+<span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/leer_estacion.html">leer_estacion</a></span><span class="op">(</span><span class="st">"estacion_NH0472"</span>, <span class="st">"datos/NH0472.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Generar tabla resumen</span></span>
+<span><span class="va">resumen</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tabla_resumen_temperatura.html">tabla_resumen_temperatura</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"estacion_NH0472"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Crear gráfico mensual</span></span>
+<span><span class="fu"><a href="reference/grafico_temperatura_mensual.html">grafico_temperatura_mensual</a></span><span class="op">(</span><span class="va">datos</span>, titulo <span class="op">=</span> <span class="st">"Promedio mensual de temperatura - Estación NH0472"</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="autores-del-paquete">Autores del paquete<a class="anchor" aria-label="anchor" href="#autores-del-paquete"></a>
+</h2>
+<ul>
+<li><p><strong>Ezequiel Piseri</strong><br><a href="https://github.com/EzequielPiseri" class="external-link">GitHub: EzequielPiseri</a><br>
+Estudiante de Ciencia de Datos – Universidad Austral</p></li>
+<li><p><strong>Kiara Manacasa</strong><br><a href="https://github.com/Kiaramanacasa" class="external-link">GitHub: Kiaramanacasa</a><br>
+Estudiante de Ciencia de Datos – Universidad Austral</p></li>
+</ul>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="contribuciones-al-paquete">Contribuciones al paquete<a class="anchor" aria-label="anchor" href="#contribuciones-al-paquete"></a>
+</h2>
+<p>Si deseás realizar contribuciones al paquete, ya sea para agregar mejoras, corregir errores o proponer nuevas funciones, seguí estos pasos:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Fork y clona el repositorio</strong><br>
+Hacé un <em>fork</em> del repositorio en tu cuenta de GitHub y clonalo en tu máquina local.</p></li>
+<li><p><strong>Realizá tus cambios y creá un pull request</strong><br>
+Una vez hechos los cambios, abrí un <em>pull request</em> a la rama principal del proyecto con una descripción clara del propósito de la contribución.</p></li>
+</ol>
+<p>Para dudas o sugerencias, podés contactarnos a los siguientes correos:</p>
+<ul>
+<li>
+<strong>Ezequiel Piseri</strong>: <a href="mailto:ezequielpiseri@gmail.com" class="email">ezequielpiseri@gmail.com</a><br>
+</li>
+<li>
+<strong>Kiara Manacasa</strong>: <a href="mailto:kmanacasa@gmail.com" class="email">kmanacasa@gmail.com</a>
+</li>
+</ul>
+<hr>
+<div class="section level3">
+<h3 id="código-de-contribución">Código de contribución<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-de-contribuci%C3%B3n"></a>
+</h3>
+<p><a href="https://github.com/EzequielPiseri/metzara/blob/main/.github/CONTRIBUTING.md" class="external-link">Guía de contribución</a></p>
+<hr>
 </div>
 </div>
+</div>
+
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
@@ -121,7 +215,7 @@
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/EzequielPiseri/metzara" class="external-link"><img src="https://codecov.io/gh/EzequielPiseri/metzara/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://app.codecov.io/gh/EzequielPiseri/metzara" class="external-link"><img src="https://codecov.io/gh/EzequielPiseri/metzara/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 
