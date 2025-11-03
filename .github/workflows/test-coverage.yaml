@@ -1,12 +1,11 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
-# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 on:
   push:
     branches: [main, master]
   pull_request:
 
-name: test-coverage
+name: test-coverage.yaml
 
 permissions: read-all
 
@@ -28,7 +27,7 @@ jobs:
           extra-packages: any::covr, any::xml2
           needs: coverage
 
-      - name: Generate coverage (Cobertura XML)
+      - name: Test coverage
         run: |
           cov <- covr::package_coverage(
             quiet = FALSE,
@@ -36,27 +35,26 @@ jobs:
             install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
           )
           print(cov)
-          xml <- covr::to_cobertura(cov)
-          writeLines(xml, "cobertura.xml")
+          covr::to_cobertura(cov)
         shell: Rscript {0}
 
-      - name: Upload to Codecov
-        uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v5
         with:
-          files: cobertura.xml
+          # Fail if error if not on PR, or if on PR and token is given
+          fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
+          files: ./cobertura.xml
+          plugins: noop
           disable_search: true
-          fail_ci_if_error: false
-          # IMPORTANTE: en repos públicos NO pongas token.
-          # Si el repo fuera privado, agrega:
-          # token: ${{ secrets.CODECOV_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Show testthat output
         if: always()
         run: |
+          ## --------------------------------------------------------------------
           find '${{ runner.temp }}/package' -name 'testthat.Rout*' -exec cat '{}' \; || true
         shell: bash
 
-      - name: Upload test results (if failed)
+      - name: Upload test results
         if: failure()
         uses: actions/upload-artifact@v4
         with:
