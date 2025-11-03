@@ -10,8 +10,6 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EzequielPiseri/metzara/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/EzequielPiseri/metzara/branch/main/graph/badge.svg)](https://app.codecov.io/gh/EzequielPiseri/metzara)
-[![Codecov test
-coverage](https://codecov.io/gh/EzequielPiseri/metzara/graph/badge.svg)](https://app.codecov.io/gh/EzequielPiseri/metzara)
 <!-- badges: end -->
 
 # Objetivo
