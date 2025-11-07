@@ -1,3 +1,4 @@
+##arreglo nota de variables globales
 utils::globalVariables(c(
   ".data",
   "fecha", "id", "mes", "temperatura_abrigo_150cm", "promedio",
