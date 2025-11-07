@@ -1,8 +1,8 @@
 ---
-title: "Uso del paquete meteorodata"
+title: "Uso del paquete metzara"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Uso del paquete meteorodata}
+  %\VignetteIndexEntry{Uso del paquete metzara}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
